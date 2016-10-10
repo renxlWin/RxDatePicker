@@ -10,4 +10,12 @@
 #import <Masonry.h>
 @interface RxDatePickView : UIView
 
+@property (nonatomic, copy) void (^choiceTime)(NSString *selectDate);
+
+/**
+ *  显示
+ */
+-(NSString *)showSelectDate;
+
+
 @end
