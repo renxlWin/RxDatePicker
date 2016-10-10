@@ -18,8 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-Wg-6x7">
-                                <state key="normal" title="点击选择日期"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofb-Wg-6x7">
+                                <state key="normal" title="点击选择日期">
+                                    <color key="titleColor" red="1" green="0.1664707507" blue="0.32066386460000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="choiceDateBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lyF-vj-kgc"/>
                                 </connections>

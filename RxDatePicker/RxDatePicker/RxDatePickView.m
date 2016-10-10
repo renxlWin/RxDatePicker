@@ -219,12 +219,6 @@
     
     NSDateFormatter *formater = [[NSDateFormatter alloc] init];
     
-    NSString *year;
-    NSString *month;
-    NSString *day;
-    NSString *hour;
-    NSString *minutes;
-    
     if (component == 0) {
         
         self.selectOne = row;
@@ -240,11 +234,11 @@
         //判断年份
         if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
             
-            year = [formater stringFromDate:[NSDate date]];
+            self.year = [formater stringFromDate:[NSDate date]];
             
         }else{
             
-            year =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+            self.year =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
             
         };
         
@@ -253,11 +247,11 @@
         
         if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
             
-            month = [formater stringFromDate:[NSDate date]];
+            self.month = [formater stringFromDate:[NSDate date]];
             
         }else{
             
-            month =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+            self.month =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
             
         };
         
@@ -266,11 +260,11 @@
         
         if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
             
-            day = [formater stringFromDate:[NSDate date]];
+            self.day = [formater stringFromDate:[NSDate date]];
             
         }else{
             
-            day =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+            self.day =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
             
         };
         
@@ -283,7 +277,7 @@
         
         NSString *hourTitle = [self pickerView:pickerView titleForRow:self.selectTwo forComponent:1];
         
-        hour = [hourTitle substringToIndex:[hourTitle length]-1];
+        self.hour = [hourTitle substringToIndex:[hourTitle length]-1];
         
         self.selectTwo = row;
         
@@ -297,7 +291,7 @@
         
         NSString *minTitle = [self pickerView:pickerView titleForRow:self.selectThree forComponent:2];
         
-        minutes = [minTitle substringToIndex:[minTitle length]-1];
+        self.minutes = [minTitle substringToIndex:[minTitle length]-1];
         
     }
 
