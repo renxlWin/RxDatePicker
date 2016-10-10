@@ -12,10 +12,5 @@
 
 @property (nonatomic, copy) void (^choiceTime)(NSString *selectDate);
 
-/**
- *  显示
- */
--(NSString *)showSelectDate;
-
 
 @end
