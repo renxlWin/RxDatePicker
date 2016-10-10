@@ -217,7 +217,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
-    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    
     
     if (component == 0) {
         
@@ -226,75 +226,82 @@
         [pickerView reloadComponent:2];
         
         
-        [formater setDateFormat:@"yyyy"];
-        
-        //判断选择的时间
-        NSInteger choiceDay = [pickerView selectedRowInComponent:0];
-        
-        //判断年份
-        if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
-            
-            self.year = [formater stringFromDate:[NSDate date]];
-            
-        }else{
-            
-            self.year =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
-            
-        };
-        
-        //判断月份
-        [formater setDateFormat:@"MM"];
-        
-        if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
-            
-            self.month = [formater stringFromDate:[NSDate date]];
-            
-        }else{
-            
-            self.month =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
-            
-        };
-        
-        //判断日期
-        [formater setDateFormat:@"dd"];
-        
-        if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
-            
-            self.day = [formater stringFromDate:[NSDate date]];
-            
-        }else{
-            
-            self.day =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
-            
-        };
+
         
     }else if (component == 1){
         
-        [pickerView reloadComponent:2];
-        
-        //判断几点
-        [formater setDateFormat:@"HH"];
-        
-        NSString *hourTitle = [self pickerView:pickerView titleForRow:self.selectTwo forComponent:1];
-        
-        self.hour = [hourTitle substringToIndex:[hourTitle length]-1];
-        
         self.selectTwo = row;
+        
+        [pickerView reloadComponent:2];
         
         
     }else{
         
         self.selectThree = row;
         
-        //判断分钟
-        [formater setDateFormat:@"mm"];
-        
-        NSString *minTitle = [self pickerView:pickerView titleForRow:self.selectThree forComponent:2];
-        
-        self.minutes = [minTitle substringToIndex:[minTitle length]-1];
-        
     }
 
+    NSDateFormatter *formater = [[NSDateFormatter alloc] init];
+    
+    [formater setDateFormat:@"yyyy"];
+    
+    //判断选择的时间
+    NSInteger choiceDay = [pickerView selectedRowInComponent:0];
+    
+    //判断年份
+    if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
+        
+        self.year = [formater stringFromDate:[NSDate date]];
+        
+    }else{
+        
+        self.year =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+        
+    };
+    
+    //判断月份
+    [formater setDateFormat:@"MM"];
+    
+    if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
+        
+        self.month = [formater stringFromDate:[NSDate date]];
+        
+    }else{
+        
+        self.month =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+        
+    };
+    
+    //判断日期
+    [formater setDateFormat:@"dd"];
+    
+    if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
+        
+        self.day = [formater stringFromDate:[NSDate date]];
+        
+    }else{
+        
+        self.day =[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]];
+        
+    };
+    
+    //判断几点
+    [formater setDateFormat:@"HH"];
+    
+    NSString *hourTitle = [self pickerView:pickerView titleForRow:self.selectTwo forComponent:1];
+    
+    self.hour = [hourTitle substringToIndex:[hourTitle length]-1];
+    
+    
+    
+    
+    //判断分钟
+    [formater setDateFormat:@"mm"];
+    
+    NSString *minTitle = [self pickerView:pickerView titleForRow:self.selectThree forComponent:2];
+    
+    self.minutes = [minTitle substringToIndex:[minTitle length]-1];
+    
 }
 
 #pragma mark - 懒加载
