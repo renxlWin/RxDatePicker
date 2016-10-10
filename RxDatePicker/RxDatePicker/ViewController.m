@@ -39,19 +39,19 @@
         self.datePickerView.transform = CGAffineTransformMakeTranslation(0, -pickViewHigh);
     }];
     
-    
 }
 
 
 #pragma mark - 懒加载
 -(RxDatePickView *)datePickerView{
+    
     if (_datePickerView == nil) {
+        
         _datePickerView = [[RxDatePickView alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height , [UIScreen mainScreen].bounds.size.width, pickViewHigh)];
         
         __weak typeof(self) weakSelf = self;
         
         _datePickerView.choiceTime = ^(NSString *selectedDate){
-            
             
             [weakSelf.choiceDateBtn setTitle:selectedDate forState:UIControlStateNormal];
           
@@ -64,7 +64,6 @@
                 [weakSelf.datePickerView removeFromSuperview];
                 
             }];
-            
             
         };
     }
