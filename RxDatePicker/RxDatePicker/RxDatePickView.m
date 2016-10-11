@@ -161,9 +161,16 @@
         
         
         NSArray *tempArr= self.minutesArr[self.selectOne];
-        NSArray *tempArr2 = tempArr[self.selectTwo];
         
-        return tempArr2.count;
+        if (self.selectTwo > tempArr.count-1) {
+            
+            [pickerView reloadComponent:2];
+            
+        }else{
+            NSArray *tempArr2 = tempArr[self.selectTwo];
+            
+            return tempArr2.count;
+        }
         
     }
     return 0;
