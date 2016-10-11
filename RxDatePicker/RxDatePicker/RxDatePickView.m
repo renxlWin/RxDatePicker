@@ -152,21 +152,16 @@
     if (component == 0) {
         return 3;
     }else if (component == 1){
-        //第0组选择的哪一行
-        NSInteger indexRow = [self.pickerView selectedRowInComponent:0];
-        NSArray *tempArr = self.hourArr[indexRow];
+
+        NSArray *tempArr = self.hourArr[self.selectOne];
         
         return tempArr.count;
         
     }else if (component == 2){
         
-        //第0组选择的哪一行
-        NSInteger indexRow1 = [self.pickerView selectedRowInComponent:0];
-        //第一组选择的哪一行
-        NSInteger selectRow2 = [self.pickerView selectedRowInComponent:1];
         
-        NSArray *tempArr= self.minutesArr[indexRow1];
-        NSArray *tempArr2 = tempArr[selectRow2];
+        NSArray *tempArr= self.minutesArr[self.selectOne];
+        NSArray *tempArr2 = tempArr[self.selectTwo];
         
         return tempArr2.count;
         
@@ -246,7 +241,7 @@
     [formater setDateFormat:@"yyyy"];
     
     //判断选择的时间
-    NSInteger choiceDay = [pickerView selectedRowInComponent:0];
+    NSInteger choiceDay = self.selectOne;
     
     //判断年份
     if([[formater stringFromDate:[NSDate date]] isEqualToString:[formater stringFromDate:[NSDate dateWithTimeIntervalSinceNow:choiceDay * 24 * 60 * 60]]]){
